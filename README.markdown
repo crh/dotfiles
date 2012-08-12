@@ -1,16 +1,12 @@
 # crh's dotfiles
 
-## dotfiles
+## description
 
-Your dotfiles are how you personalize your system. These are mine. The very
-prejudiced mix: Linux, vim, emacs, sublime, zsh, git, Ruby. If you
-match up along most of those lines, you may dig my dotfiles.
+Your dotfiles are how you personalize your system. 
 
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
+These are mine.  
+
+vim,  zsh, git, xmonad, tmux, mutt, etc.
 
 If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read holman's post on the
@@ -45,9 +41,7 @@ symlinked without extension into `$HOME` when you run `rake install`.
 
 ## what's inside
 
-A lot of stuff. Seriously, a lot of stuff. Check them out in the file browser
-above and see what components may mesh up with you. Fork it, remove what you
-don't use, and build on what you do use.
+TODO write more
 
 ## components
 
@@ -66,27 +60,13 @@ There's a few special files in the hierarchy.
 
 ## add-ons
 
-There are a few things I use to make my life awesome. They're not a required
-dependency, but if you install them they'll make your life a bit more like a
-bubble bath.
-
-- If you want some more colors for things like `ls`, install grc: `brew install
-  grc`.
-- If you install the excellent [rbenv](https://github.com/sstephenson/rbenv) to
-  manage multiple rubies, your current branch will show up in the prompt. Bonus.
-
 ## bugs
 
-I want this to work for everyone; that means when you clone it down it should
-work for you even though you may not have `rbenv` installed, for example. That
-said, I do use this as *my* dotfiles, so there's a good chance I may break
-something if I forget to make a check for a dependency.
-
-If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/crh/dotfiles/issues) on this repository
-and I'd love to get it fixed for you!
+[open an issue](https://github.com/crh/dotfiles/issues) on this repository.
 
 ## thanks
 
-I forked [Holman](http://github.com/holman)' excellent
-[dotfiles](http://github.com/holman/dotfiles).
+I forked [Holman](http://github.com/holman)' excellent [dotfiles]
+(http://github.com/holman/dotfiles).
+
+
