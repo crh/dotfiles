@@ -1,0 +1,132 @@
+" Options initiating with [D] {{{
+" |'defsearch'| The default search engine
+set ds=goog
+
+" }}}
+" stolen from: http://files.blase16.de/dotfiles/pentadactylrc
+
+" |'complete'| Items which are completed at the :open prompts. Order is
+"              important
+"  ,-{{{ Available items:
+"  | b Bookmarks
+"  | f Local files
+"  | h History
+"  | l Firefox location bar entries (bookmarks and history sorted in an
+"  |   intelligent way)
+"  | s Search engines and keyword URLs
+"  | S Search engine suggestions
+"  | t Open tabs
+"  `-}}}
+set complete=stlfS
+
+" Options initiating with [G] {{{
+" |'guioptions'| Show or hide certain GUI elements like the menu or toolbar
+" ,----
+" | B    Bookmark bar
+" | C    Always show the command line outside of the status line
+" | M    Always show messages outside of the status line
+" | N    Tab number over image
+" | T    Toolbar
+" | b    Bottom scrollbar
+" | c    Always show the command line, even when empty
+" | l    Left scrollbar (l and r are mutually exclusive)
+" | m    Menu bar
+" | n    Tab number
+" | r    Right scrollbar
+" | s    Status bar
+" `----
+set go=CNbrs
+" }}}
+
+" |'hintinputs'|    Which text is used to filter hints for input elements
+" ,----
+" | value   The hint is the value displayed in a text input, or the selected
+" |         option for a drop-down.
+" | label   The value of an explicit label for the input; this will not match
+" |         most manually added labels that are found on sites.
+" | name    The name of the input will be used; although the name is not
+" |         designed for user consumption, it is frequently very similar to the
+" |         label.
+" `----
+" set hin=label,value
+
+" |'hintkeys'|    The keys used to label and select hints
+set hk="asdfg;lkjh"
+
+" |'hinttimeout'|   Timeout before automatically following a non-unique numerical hint
+"                   default is 0 which means never
+set hto=3
+
+" |'hlfind'|    Highlight all /find pattern matches on the current page after submission
+set hlfind
+" }}}
+
+
+" Options initiating with [S] {{{
+" |'sanitizeitems'|    The default list of private items to sanitize
+" ,----
+" | all             All items
+" | cache           Cache
+" | commandline     Command-line history
+" | cookies         Cookies
+" | downloads       Download history
+" | formdata        Saved form and search history
+" | history         Browsing history
+" | marks           Local and URL marks
+" | macros          Saved macros
+" | messages        Saved :messages
+" | offlineapps     Offline website data
+" | options         Options containing hostname data
+" | passwords       Saved passwords
+" | sessions        Authenticated sessions
+" | sitesettings    Site preferences
+" `----
+set si=cache,cookies,downloads,marks,macros,messages,offlineapps,options,sessions
+
+" |'shell'|    Shell to use for executing external commands with :! and :run
+set sh=/bin/zsh
+
+" Options initiating with [V] {{{
+" |'verbose'| Define which info messages are displayed
+set vbs=2
+
+" |'visualbell'| Use visual bell instead of beeping on errors
+set vb
+" }}}
+
+" |'wildmode'| Define the behavior of the <Tab> key in command-line completion
+" ,----
+" | ""    Complete only the first match.
+" | full            Complete the next full match. After the last, the original
+" |                 string is used.
+" | longest         Complete the longest common substring of all completions.
+" | list            When more than one match, list all matches.
+" | list:full       When more than one match, list all matches and complete the
+" |                 first match.
+" | list:longest    When more than one match, list all matches and complete till
+" |                 the longest common string. When there is only a single
+" |                 match, it is fully completed regardless of the case. 
+" `----
+set wim=list:longest
+
+" Show feed button in the status line
+javascript <<EOF
+(function(){
+    var feedPanel = document.createElement("statusbarpanel");
+    feedPanel.setAttribute("id", "feed-panel-clone");
+    feedPanel.appendChild(document.getElementById("feed-button"));
+    feedPanel.firstChild.setAttribute("style", "padding: 0; max-height: 16px;");
+    document.getElementById("status-bar")
+            .insertBefore(feedPanel, document.getElementById("security-button"));
+})();
+EOF
+
+
+
+"""
+"hg6814
+" vim: set ft=pentadactyl:
+
+loadplugins '\.(js|penta)$'
+group user
+set guioptions=bCrsmT
