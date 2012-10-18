@@ -1,0 +1,21 @@
+URxvt*termName:screen-256color
+URxvt.depth: 32
+URxvt.background: [95]#000000
+
+! enable transparentcy
+URxvt.transparent: true
+
+! URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt.shading: 110
+
+! setting font
+URxvt.font: 9x15
+
+! TODO: does not look
+! URxvt.font: xft:monaco:size=10
+
+! set icon
+URxvt.iconFile: /usr/share/icons/gnome/scalable/apps/utilities-terminal-symbolic.svg
+
+! set as login shell
+URxvt*loginShell: true

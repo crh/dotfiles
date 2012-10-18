@@ -61,7 +61,6 @@ set hto=3
 set hlfind
 " }}}
 
-
 " Options initiating with [S] {{{
 " |'sanitizeitems'|    The default list of private items to sanitize
 " ,----
