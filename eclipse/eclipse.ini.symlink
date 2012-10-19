@@ -20,7 +20,7 @@ openFile
 -XX:MaxPermSize=384m
 -XX:CompileTreshold=6
 -XX:MaxGCPauseMillis=10
--XX:MaxHeapFreeRation=70
+-XX:MaxHeapFreeRatio=70
 -XX:+CMSIncrementalPacing
 
 #Experimental options of the Sun JVM
@@ -30,10 +30,10 @@ openFile
 -XX:+UseFastAccessorMethods
 
 #JVM1.7x64 potentioal optimizations
--Xincgc 
--XX:-DontCompileHugeMethods 
--XX:MaxInlineSize=1024  
--XX:FreqInlineSize=1024 
+-Xincgc
+-XX:-DontCompileHugeMethods
+-XX:MaxInlineSize=1024
+-XX:FreqInlineSize=1024
 
 #For Remote Debugging
 -Dcom.sun.management.jmxremote
