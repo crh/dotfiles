@@ -1,58 +1,11 @@
-"hg6773
+"hg6830
 
-" }}}
-" stolen from: http://files.blase16.de/dotfiles/pentadactylrc
-
-" |'complete'| Items which are completed at the :open prompts. Order is
-"              important
-"  ,-{{{ Available items:
-"  | b Bookmarks
-"  | f Local files
-"  | h History
-"  | l Firefox location bar entries (bookmarks and history sorted in an
-"  |   intelligent way)
-"  | s Search engines and keyword URLs
-"  | S Search engine suggestions
-"  `-}}}
-set complete=slfSbh
-
-" Options initiating with [D] {{{
-" |'defsearch'| The default search engine
-set ds=google
-
-" Options initiating with [G] {{{
-" |'guioptions'| Show or hide certain GUI elements like the menu or toolbar
-" ,----
-" | B    Bookmark bar
-" | C    Always show the command line outside of the status line
-" | M    Always show messages outside of the status line
-" | N    Tab number over image
-" | T    Toolbar
-" | b    Bottom scrollbar
-" | c    Always show the command line, even when empty
-" | l    Left scrollbar (l and r are mutually exclusive)
-" | m    Menu bar
-" | n    Tab number
-" | r    Right scrollbar
-" | s    Status bar
-" `----
-set go=CNbrs
-" }}}
-
-" |'hintkeys'|    The keys used to label and select hints
-set hk="asdfg;lkjh"
-
-" |'shell'|    Shell to use for executing external commands with :! and :run
-set sh=/bin/zsh
-
-" Options initiating with [V] {{{
-" |'verbose'| Define which info messages are displayed
-set vbs=2
-
-" |'visualbell'| Use visual bell instead of beeping on errors
-set vb
-
-" }}}
-" Others
 loadplugins '\.(js|penta)$'
 group user
+set complete=search,location,file,suggestion,bookmark,history
+set guioptions=CNbrsc
+set hintkeys=asdfg;lkjh
+set verbose=2
+set visualbell
+
+" vim: set ft=pentadactyl:
