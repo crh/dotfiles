@@ -1,0 +1,55 @@
+#these are the best JVM settings to speed up Eclipse[1]
+-data
+-startup
+-showsplash
+org.eclipse.platform
+-showlocation
+--launcher.defaultAction
+openFile
+-vmargs
+-Dosgi.requiredJavaVersion=1.6
+
+#skip security warning during installation of plugins
+-Declipse.p2.unsignedPolicy=allow
+
+#Memory Settings [2]
+-Xms128m
+-Xmx512m
+-Xss4m
+-XX:PermSize=128m
+-XX:MaxPermSize=384m
+-XX:CompileTreshold=6
+-XX:MaxGCPauseMillis=10
+-XX:MaxHeapFreeRatio=70
+-XX:+CMSIncrementalPacing
+
+#Experimental options of the Sun JVM
+-XX:UnlockExperimentalVMOptions
+#Apparently G1GC make Eclipse on Mac not functional
+-XX:+UseG1GC
+-XX:+UseFastAccessorMethods
+
+#JVM1.7x64 potentioal optimizations
+-Xincgc
+-XX:-DontCompileHugeMethods
+-XX:MaxInlineSize=1024
+-XX:FreqInlineSize=1024
+
+#For Remote Debugging
+-Dcom.sun.management.jmxremote
+
+#implicit -startup and --launcher.library (not needed anymore)
+
+#plugins/org.eclipse.equinox.launcher_1.1.1.R36x_v20101122_1400.jar
+#--launcher.library
+#plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.2.R36x_v20101019_1345
+-product
+org.eclipse.epp.package.java.product
+
+#Specify location of dropins folder
+#-Dorg.eclipse.equinox.p2.reconciler.dropins.directory=/home/${username}/foo/bar/${name_for_eclipse_addons}
+
+#References:
+
+#[1] http://stackoverflow.com/questions/142357/what-are-the-best-jvm-settings-for-eclipse/3275659#3275659
+#[2] http://blogs.sun.com/watt/resource/jvm-options-list.html

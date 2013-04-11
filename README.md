@@ -6,7 +6,7 @@ Your dotfiles are how you personalize your system.
 
 These are mine.  
 
-vim,  zsh, git, xmonad, tmux, mutt, etc.
+vim, zsh, git, xmonad, tmux, mutt, etc.
 
 If you're interested in the philosophy behind why projects like these are
 awesome, you might want to [read holman's post on the
@@ -16,6 +16,7 @@ subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 Run this:
 
+TODO this does _not_ work yet.
 ```sh
 git clone https://github.com/crh/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
