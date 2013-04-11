@@ -1,0 +1,49 @@
+{
+  "auto_upgrade_last_run": null,
+    "installed_packages":
+      [
+    "All Autocomplete",
+    "Autocomplete Javascript with Method Signature",
+    "BracketHighlighter",
+    "ChangeQuotes",
+    "CoffeeScript",
+    "DetectSyntax",
+    "EditorConfig",
+    "Emmet",
+    "Git",
+    "GitGutter",
+    "Grails",
+    "GrowlNotifier",
+    "HTML5",
+    "HtmlTidy",
+    "jQuery",
+    "JsFormat",
+    "JSHint",
+    "Markdown Preview",
+    "Nodejs",
+    "orgmode",
+    "Package Control",
+    "RubyCheckOnSave",
+    "RubyEval",
+    "RubyFormat",
+    "SCSS",
+    "Search Stack Overflow",
+    "SideBarEnhancements",
+    "sublime-closure-linter",
+    "Sublime-JSHint",
+    "SublimeCodeIntel",
+    "SublimeLinter",
+    "SublimeREPL",
+    "SublimeTODO",
+    "Theme - Soda",
+    "TidyHTML5",
+    "Vintage Surround",
+    "VintageEx",
+    "Web Inspector"
+      ],
+    "repositories":
+      [
+        "https://github.com/osoco/sublimetext-grails.git",
+        "https://github.com/danielmagnussons/orgmode.git"
+      ]
+}
