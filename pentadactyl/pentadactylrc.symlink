@@ -2,10 +2,12 @@
 
 loadplugins '\.(js|penta)$'
 group user
-set complete=search,location,file,suggestion,bookmark,history
+" [auto completion](http://5digits.org/help/pentadactyl/options.xhtml#:set)
+" ordered by first to last
+set complete=Slbhfs
 set guioptions=CNbrsc
 set hintkeys=asdfg;lkjh
 set verbose=2
 set visualbell
-
-" vim: set ft=pentadactyl:
+set editor='/usr/local/bin/mvim -f +<line> +"sil! call cursor(0, <column>)" <file>'
+set defsearch=go
