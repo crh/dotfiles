@@ -148,3 +148,18 @@
 (setq grails-mode t)
 (setq project-mode t)
 (add-to-list 'auto-mode-alist '("\.gsp$" . html-mode)) ; Use whatever mode you want for views.
+
+
+; language tool
+; https://github.com/mhayashi1120/Emacs-langtool
+
+(require 'langtool)
+(setq langtool-language-tool-jar "~/.emacs.d/crh/LanguageTool-2.1/languagetool-commandline.jar")
+(setq langtool-mother-tongue "en")
+
+;; key binding
+(global-set-key "\C-x4w" 'langtool-check)
+(global-set-key "\C-x4W" 'langtool-check-done)
+(global-set-key "\C-x4l" 'langtool-switch-default-language)
+(global-set-key "\C-x44" 'langtool-show-message-at-point)
+(global-set-key "\C-x4c" 'langtool-correct-buffer)
