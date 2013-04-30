@@ -2,8 +2,10 @@
 (require 'package)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("elpa" . "http://tromey.com/elpa/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ))
 
 (package-initialize)
 
@@ -69,6 +71,7 @@
     (java . t)
     (ruby . t)
     (sh . t)
+    (clojure . t)
     (python . t)
     (emacs-lisp . t)
   ))
@@ -142,7 +145,7 @@
 ; blink it
 (blink-cursor-mode 1)
 
-(set-default-font "Monaco-14")
+(set-default-font "Monaco-12")
 
 (require 'grails-mode)
 (setq grails-mode t)
@@ -163,3 +166,20 @@
 (global-set-key "\C-x4l" 'langtool-switch-default-language)
 (global-set-key "\C-x44" 'langtool-show-message-at-point)
 (global-set-key "\C-x4c" 'langtool-correct-buffer)
+
+; mark-multiple
+;; github:  https://github.com/magnars/mark-multiple.el
+;; demo://emacsrocks.com/e08.html
+(require 'inline-string-rectangle)
+(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
+
+(require 'mark-more-like-this)
+(global-set-key (kbd "C-<") 'mark-previous-like-this)
+(global-set-key (kbd "C->") 'mark-next-like-this)
+(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
+(global-set-key (kbd "C-*") 'mark-all-like-this)
+
+(add-hook 'sgml-mode-hook
+          (lambda ()
+            (require 'rename-sgml-tag)
+            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
