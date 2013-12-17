@@ -4,7 +4,9 @@ loadplugins '\.(js|penta)$'
 group user
 " [auto completion](http://5digits.org/help/pentadactyl/options.xhtml#:set)
 " ordered by first to last
-set complete=lbShfs
+" set complete=lbShfs
+
+set complete=lbhSfs
 set guioptions=CNbrsc
 set hintkeys=asdfg;lkjh
 set verbose=2

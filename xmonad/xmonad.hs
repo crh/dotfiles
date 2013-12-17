@@ -1,5 +1,6 @@
--- xmonad config used by Vic Fryzel
--- Author: Vic Fryzel
+-- xmonad config used by Christian Herlambang
+-- Author: Christian Herlambang
+-- Based on xmonad config by Vic Fryzel
 -- http://github.com/vicfryzel/xmonad-config
 
 import System.IO
@@ -91,7 +92,7 @@ myManageHook = composeAll
     , resource  =? "skype"          --> doShift "6:chat"
     , resource  =? "Eclipse"        --> doShift "7:eclipse"
     , className =? "Eclipse"        --> doShift "7:eclipse"
-    , className =? "MPlayer"        --> doFloat
+--    , className =? "MPlayer"        --> doFloat
     , className =? "Galculator"     --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "gpicview"       --> doFloat
@@ -123,8 +124,8 @@ myLayout = avoidStruts (
 -- Currently based on the ir_black theme.
 -- myNormalBorderColor  = "#7c7c7c"
 -- myFocusedBorderColor = "#ffb6b0"
-myNormalBorderColor  = "#abc123"  
-myFocusedBorderColor = "#456def"  
+myNormalBorderColor  = "#abc123"
+myFocusedBorderColor = "#456def"
 
 
 -- Colors for text and backgrounds of each tab when in "Tabbed" layout.
@@ -172,13 +173,17 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Maximize the focused window temporarily
   , ((modMask,               xK_m     ), withFocused $ sendMessage . maximizeRestore)
 
+  , ((modMask, xK_o), spawn "xfrun4")
+
+  , ((modMask .|. shiftMask, xK_o), spawn "xfce4-appfinder")
+
   -- Launch dmenu via yeganesh.
   -- Use this to launch programs without a key binding.
   -- cphang: 'does not work'
-  -- , ((modMask, xK_p),
-  --    spawn "exe=`dmenu_path | yeganesh` && eval \"exec $exe\"")
+  -- , ((modMask, xK_p), spawn "exe=`dmenu_run -b -nb black -nf yellow -sf yellow` && eval \"exec $exe\"")
+  -- , ((modMask, xK_p), spawn "dmenu_run")
   -- cphang: 'replace with this line'
-  , ((modMask, xK_p), spawn "exe=`dmenu_run -b -nb black -nf yellow -sf yellow` && eval \"exec $exe\"")
+  , ((modMask, xK_p), spawn "dmenu-with-yeganesh")
 
   -- Take a screenshot in select mode.
   -- After pressing this key binding, click a window, or draw a rectangle with
@@ -290,12 +295,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
   -- Toggle the status bar gap.
   -- TODO: update this binding with avoidStruts, ((modMask, xK_b),
 
-  -- Quit xmonad.
   -- , ((modMask .|. shiftMask, xK_q), io (exitWith ExitSuccess))
+  -- Quit xfce
      , ((modMask .|. shiftMask, xK_q     ), spawn "xfce4-session-logout")
 
   -- Restart xmonad.
-  , ((modMask, xK_q), restart "xmonad" True)
+  -- , ((modMask, xK_q), restart "xmonad" True)
 
   -- to hide/unhide the panel
   , ((modMask              , xK_b), sendMessage ToggleStruts)

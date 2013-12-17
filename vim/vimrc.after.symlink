@@ -67,7 +67,7 @@ if has("gui_running")
   if has("gui_gtk2")
     " you have to install Mensch font
     " TODO check if, Mensch is installed. Otherwise use other font.
-    set guifont=Mensch\ 9
+    set guifont=Source\ Code\ Pro\ 10
     colorscheme solarized
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
