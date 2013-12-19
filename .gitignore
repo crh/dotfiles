@@ -1,9 +1,7 @@
 tmp
 emacs/session*
-
 emacs/.org-id-locations
 emacs/auto-save-list/
-emacs/elpa/
 emacs/init.el.orig
 emacs/url/
 xmonad/bin/

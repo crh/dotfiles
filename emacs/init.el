@@ -2,8 +2,8 @@
 ; TODO: disable menu
 ;;TODO install org-confluence
 ;(require 'org-confluence)
-(setq url-proxy-services '(("no_proxy" . "sap.corp")
-                           ("http" . "proxy.wdf.sap.corp:8080")))
+;(setq url-proxy-services '(("no_proxy" . "sap.corp")
+;                           ("http" . "proxy.wdf.sap.corp:8080")))
 
 (require 'package)
 
@@ -142,7 +142,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("/home/crh/Dropbox/org/second-test.org" "/home/crh/Dropbox/org/test-mobile-org.org")))
+ '(org-agenda-files nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
