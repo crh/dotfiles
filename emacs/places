@@ -1,2 +1,4 @@
 ;;; -*- coding: utf-8 -*-
-(("/home/crh/.dotfiles/emacs/init.el" . 6221))
+(("/home/crh/.dotfiles/emacs/init.el" . 801)
+ ("/home/crh/.emacs.d/elpa/org-20140127/org-autoloads.el" . 27186)
+ ("/home/crh/.emacs.d/elpa/org-20140127/org-loaddefs.el" . 86794))

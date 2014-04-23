@@ -1,9 +1,7 @@
-; TODO: on start, full screen
-; TODO: disable menu
 ;;TODO install org-confluence
-;(require 'org-confluence)
-;(setq url-proxy-services '(("no_proxy" . "sap.corp")
-;                           ("http" . "proxy.wdf.sap.corp:8080")))
+; (require 'org-confluence)
+(setq url-proxy-services '(("no_proxy" . "sap.corp")
+                           ("http" . "proxy.wdf.sap.corp:8080")))
 
 (require 'package)
 
@@ -89,7 +87,7 @@
 (setq org-confirm-babel-evaluate nil)
 
 ; spell correction
-(setq ispell-program-name "/opt/local/bin/aspell")
+(setq ispell-program-name "/usr/bin/aspell")
 (setq ispell-list-command "list")
 
 ;; SLIME
@@ -142,6 +140,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("4a60f0178f5cfd5eafe73e0fc2699a03da90ddb79ac6dbc73042a591ae216f03" default)))
  '(org-agenda-files nil)
  '(show-paren-mode t)
  '(tool-bar-mode nil))
@@ -153,51 +152,52 @@
  '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 98 :width normal)))))
 
 ;; mobileorg settings
-(setq org-directory "~/Dropbox/org")
-(setq org-mobile-inbox-for-pull "~/Dropbox/org/inbox.org")
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-(setq org-mobile-files '("~/Dropbox/org"))
+; staging area for sync
+;(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
+;(setq org-directory "~/Dropbox/org")
+;(setq org-mobile-inbox-for-pull "~/Dropbox/org/inbox.org")
+;(setq org-mobile-files '("~/Dropbox/org"))
 
-(defvar org-mobile-push-timer nil
-  "Timer that `org-mobile-push-timer' used to reschedule itself, or nil.")
+;(defvar org-mobile-push-timer nil
+;  "Timer that `org-mobile-push-timer' used to reschedule itself, or nil.")
 
-(defun org-mobile-push-with-delay (secs)
-  (when org-mobile-push-timer
-    (cancel-timer org-mobile-push-timer))
-  (setq org-mobile-push-timer
-        (run-with-idle-timer
-         (* 1 secs) nil 'org-mobile-push)))
+;(defun org-mobile-push-with-delay (secs)
+;  (when org-mobile-push-timer
+;    (cancel-timer org-mobile-push-timer))
+;  (setq org-mobile-push-timer
+;        (run-with-idle-timer
+;         (* 1 secs) nil 'org-mobile-push)))
 
-(add-hook 'after-save-hook
- (lambda ()
-   (when (eq major-mode 'org-mode)
-     (dolist (file (org-mobile-files-alist))
-      (if (string= (file-truename (expand-file-name (car file)))
-		   (file-truename (buffer-file-name)))
-           (org-mobile-push-with-delay 30)))
-   )))
+;(add-hook 'after-save-hook
+; (lambda ()
+;   (when (eq major-mode 'org-mode)
+;     (dolist (file (org-mobile-files-alist))
+;      (if (string= (file-truename (expand-file-name (car file)))
+;         (file-truename (buffer-file-name)))
+;           (org-mobile-push-with-delay 30)))
+;   )))
 
-(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
+;(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
 
-(org-mobile-pull) ;; run org-mobile-pull at startup
+;(org-mobile-pull) ;; run org-mobile-pull at startup
 
-(defun install-monitor (file secs)
-  (run-with-timer
-   0 secs
-   (lambda (f p)
-     (unless (< p (second (time-since (elt (file-attributes f) 5))))
-       (org-mobile-pull)))
-   file secs))
+;(defun install-monitor (file secs)
+;  (run-with-timer
+;   0 secs
+;   (lambda (f p)
+;     (unless (< p (second (time-since (elt (file-attributes f) 5))))
+;       (org-mobile-pull)))
+;   file secs))
 
-(install-monitor (file-truename
-                  (concat
-                   (file-name-as-directory org-mobile-directory)
-                          org-mobile-capture-file))
-                 5)
+;(install-monitor (file-truename
+;                  (concat
+;                   (file-name-as-directory org-mobile-directory)
+;                          org-mobile-capture-file))
+;                 5)
 
 ;; Do a pull every 5 minutes to circumvent problems with timestamping
 ;; (ie. dropbox bugs)
-(run-with-timer 0 (* 5 60) 'org-mobile-pull)
+;(run-with-timer 0 (* 5 60) 'org-mobile-pull)
 
 (setq delete-old-versions t
   kept-new-versions 6

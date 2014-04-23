@@ -68,7 +68,7 @@ if has("gui_running")
     " you have to install Mensch font
     " TODO check if, Mensch is installed. Otherwise use other font.
     set guifont=Source\ Code\ Pro\ 10
-    colorscheme solarized
+    colorscheme ir_black
   elseif has("gui_win32")
     set guifont=Consolas:h11:cANSI
   elseif has("gui_macvim")
@@ -81,7 +81,7 @@ else
   " shell
   " use 256 color in terminal
   set t_Co=256
-  colorscheme ir_black
+  colorscheme eclipse
   " set guifont=Liberation\ Mono\ 9
 endif
 
@@ -134,6 +134,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 """ PYTHON """
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+autocmd FileType text set fo+=t
 
 """ MAPPING """
 

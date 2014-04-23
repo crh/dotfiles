@@ -1,16 +1,23 @@
 
 ;; ----- smex-history -----
 (
- cd
- w3
- 5x5
- arp
- dbx
- dig
- erc
+ load-theme
+ package-install
+ package-refresh-contents
+ term
+ org-mobile-push
+ org-mobile-pull
+ eval-buffer
 )
 
 ;; ----- smex-data -----
 (
- 
+ (org-mobile-pull . 24)
+ (org-mobile-push . 17)
+ (eval-buffer . 1)
+ (term . 1)
+ (color-theme-solarized . 1)
+ (package-refresh-contents . 1)
+ (package-install . 1)
+ (load-theme . 3)
 )
