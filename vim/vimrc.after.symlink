@@ -81,7 +81,7 @@ else
   " shell
   " use 256 color in terminal
   set t_Co=256
-  colorscheme ir_black
+  colorscheme eclipse
   " set guifont=Liberation\ Mono\ 9
 endif
 
@@ -134,6 +134,8 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 """ PYTHON """
 autocmd FileType python set omnifunc=pythoncomplete#Complete
+
+autocmd FileType text set fo+=t
 
 """ MAPPING """
 

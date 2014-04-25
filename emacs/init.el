@@ -2,9 +2,6 @@
 ; TODO: disable menu
 ;;TODO install org-confluence
 ;(require 'org-confluence)
-(setq url-proxy-services '(("no_proxy" . "sap.corp")
-                           ("http" . "proxy.wdf.sap.corp:8080")))
-
 (require 'package)
 
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -137,67 +134,39 @@
 ; language tool
 ; https://github.com/mhayashi1120/Emacs-langtool
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(org-agenda-files (quote ("/home/crh/Dropbox/org/second-test.org" "/home/crh/Dropbox/org/test-mobile-org.org")))
- '(show-paren-mode t)
- '(tool-bar-mode nil))
+;(require 'langtool)
+;(setq langtool-language-tool-jar "~/.emacs.d/crh/LanguageTool-2.1/languagetool-commandline.jar")
+;(setq langtool-mother-tongue "en")
+
+;; key binding
+;(global-set-key "\C-x4w" 'langtool-check)
+;(global-set-key "\C-x4W" 'langtool-check-done)
+;(global-set-key "\C-x4l" 'langtool-switch-default-language)
+;(global-set-key "\C-x44" 'langtool-show-message-at-point)
+;(global-set-key "\C-x4c" 'langtool-correct-buffer)
+
+; mark-multiple
+;; github:  https://github.com/magnars/mark-multiple.el
+;; demo://emacsrocks.com/e08.html
+;(require 'inline-string-rectangle)
+;(global-set-key (kbd "C-x r t") 'inline-string-rectangle)
+
+;(require 'mark-more-like-this)
+;(global-set-key (kbd "C-<") 'mark-previous-like-this)
+;(global-set-key (kbd "C->") 'mark-next-like-this)
+;(global-set-key (kbd "C-M-m") 'mark-more-like-this) ; like the other two, but takes an argument (negative is previous)
+;(global-set-key (kbd "C-*") 'mark-all-like-this)
+
+(add-hook 'sgml-mode-hook
+          (lambda ()
+            (require 'rename-sgml-tag)
+            (define-key sgml-mode-map (kbd "C-c C-r") 'rename-sgml-tag)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:family "Source Code Pro" :foundry "adobe" :slant normal :weight normal :height 98 :width normal)))))
-
-;; mobileorg settings
-(setq org-directory "~/Dropbox/org")
-(setq org-mobile-inbox-for-pull "~/Dropbox/org/inbox.org")
-(setq org-mobile-directory "~/Dropbox/Apps/MobileOrg")
-(setq org-mobile-files '("~/Dropbox/org"))
-
-(defvar org-mobile-push-timer nil
-  "Timer that `org-mobile-push-timer' used to reschedule itself, or nil.")
-
-(defun org-mobile-push-with-delay (secs)
-  (when org-mobile-push-timer
-    (cancel-timer org-mobile-push-timer))
-  (setq org-mobile-push-timer
-        (run-with-idle-timer
-         (* 1 secs) nil 'org-mobile-push)))
-
-(add-hook 'after-save-hook
- (lambda ()
-   (when (eq major-mode 'org-mode)
-     (dolist (file (org-mobile-files-alist))
-      (if (string= (file-truename (expand-file-name (car file)))
-		   (file-truename (buffer-file-name)))
-           (org-mobile-push-with-delay 30)))
-   )))
-
-(run-at-time "00:05" 86400 '(lambda () (org-mobile-push-with-delay 1))) ;; refreshes agenda file each day
-
-(org-mobile-pull) ;; run org-mobile-pull at startup
-
-(defun install-monitor (file secs)
-  (run-with-timer
-   0 secs
-   (lambda (f p)
-     (unless (< p (second (time-since (elt (file-attributes f) 5))))
-       (org-mobile-pull)))
-   file secs))
-
-(install-monitor (file-truename
-                  (concat
-                   (file-name-as-directory org-mobile-directory)
-                          org-mobile-capture-file))
-                 5)
-
-;; Do a pull every 5 minutes to circumvent problems with timestamping
-;; (ie. dropbox bugs)
-(run-with-timer 0 (* 5 60) 'org-mobile-pull)
 
 (setq delete-old-versions t
   kept-new-versions 6
